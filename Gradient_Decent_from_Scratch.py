@@ -14,7 +14,7 @@ y = data['SalePrice']
 #normalise 
 x_norm = (x - x.mean()) / x.std()
 
-# add a column of ones for gradient decent
+# add a column of ones for intercept
 # np.c_ --> Translates slice objects to concatenation along the second axis (along column -- ie hstack).
 x = np.c_[np.ones(x_norm.shape[0]), x_norm]
 
