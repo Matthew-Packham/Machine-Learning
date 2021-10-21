@@ -61,5 +61,5 @@ if __name__ == "__main__":
     
     print("Gradient Descent: {:.2f}, {:.2f}".format(optimal_theta[0], optimal_theta[1]))
     print('Maximum Likeihood Estimate: {:.2f}, {:.2f}'.format(max_lik[0],max_lik[1]))
-    print('We have found the True value! Garanteed since MSE is convex')
+    print('We have found the True value! Guaranteed since MSE is convex (local = global minimum) since the hessian of MSE is positive-semi definite')
 
