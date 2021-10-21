@@ -1,13 +1,10 @@
-# Plan is to impliment gradient decent from scracth and apply Linear regression
+# Plan is to impliment gradient decent from scratch
 
-
-#define loss fun
 import numpy as np
 import pandas as pd
-import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 
-# Our data is based on housing prices. It has shape: (1460, 81)
+# Our data is based on housing prices. Kaggle (https://www.kaggle.com/c/house-prices-advanced-regression-techniques). It has shape: (1460, 81)
 data = pd.read_csv('train.csv')
 
 #pick indept and dept variables
@@ -37,7 +34,7 @@ def gradient_descent(x, y, theta, iterations, alpha):
         
     return past_thetas, past_losses
 
-
+# Maximum Likihood estimate. 
 def max_lik_estimate(X, y):
     """ X: N x D matrix of training inputs
         y: N x 1 vector of training targets/observations
@@ -54,16 +51,15 @@ if __name__ == "__main__":
     iterations = 2000 #No. of iterations
     m = y.size #No. of data points
     np.random.seed(123) #Set the seed
-    theta = np.random.rand(2) #Pick some random values to start with
+    theta = np.random.rand(2) #initalise theta
 
-    #Pass the relevant variables to the function and get the new values back...
+    # get optimal theta optimised by gradient decent
     past_thetas, past_losses = gradient_descent(x, y, theta, iterations, alpha)
     optimal_theta = past_thetas[-1]
-    
-
-    #Print the results...
-    print("Gradient Descent: {:.2f}, {:.2f}".format(optimal_theta[0], optimal_theta[1]))
+    # True (analytical) optimal theta
     max_lik = max_lik_estimate(x,y)
+    
+    print("Gradient Descent: {:.2f}, {:.2f}".format(optimal_theta[0], optimal_theta[1]))
     print('Maximum Likeihood Estimate: {:.2f}, {:.2f}'.format(max_lik[0],max_lik[1]))
     print('We have found the True value! Garanteed since MSE is convex')
 
