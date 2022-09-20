@@ -1,2 +1,3 @@
-# Machine-Learning
-Collection of notes, examples and project's related to Machine Learning.
+# Machine Learning From Scratch
+
+Coding some Machine learning techniques from scratch, for fun!
